@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<style>
+			html {
+				font-family:Arial, Helvetica, sans-serif;
+				background-color: #1a1a1a;
+				color: #e6e6e6;
+			}
+			
+			.title {
+				font-size:50px;
+			}
+			
+			.subtitle {
+				font-size:25px;
+				max-width:75%;
+				margin-top:-20px;
+			}
+		
+			.container {
+				height:100%;
+				top:0;
+				left:0;
+				right:0;
+				position:absolute;
+			}
+			
+			img {
+				height:100%;
+			}
+			
+			.containerContent {
+				position:absolute;
+			}
+			
+			.left {
+				width:50%;
+				height:100%;
+				display:flex;
+				justify-content: right;
+				align-items:center;
+			}
+			
+			.right {
+				width:50%;
+				height:100%;
+				margin-left:50%;
+				display:flex;
+				justify-content: left;
+				align-items:center;
+			}
+			
+			.descriptionText {
+				margin-left:25px;
+				width:100%;
+			}
+			
+			#c2 {
+				top:100%;
+			}
+			
+			#c3 {
+				top:200%;
+			}
+			
+			.supportContent {
+				margin-top:0px;
+			}
+			
+			a {
+				color: #3bffff;
+			}
+			
+			a:hover {
+				color:#ff6666;
+			}
+			
+			#appStoreBadge {
+				width:25%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" id="c1">
+			<div class="left containerContent">
+				<img src="images/sc1.png">
+			</div>
+			<div class="right containerContent">
+				<div class="descriptionText">
+					<h1 class="title">Femto</h1>
+					<p class="subtitle">A simple, lightweight text editor.</h1>
+					<p class="subtitle supportContent">Until January 24th, 80% of all proceeds will be donated to the Australian Red Cross.</p>
+					<a href="https://apps.apple.com/us/app/femto-editor/id1482210825"><img src="images/appstore.png" id="appStoreBadge"></a>
+				</div>
+			</div>
+		</div>
+		<div class="container" id="c2">
+			<div class="left containerContent">
+				<img src="images/sc2.png">
+			</div>
+			<div class="right containerContent">
+				<div class="descriptionText">
+					<h1 class="title">Simple, Yet Powerful</h1>
+					<p class="subtitle">With features like Markdown formatting, lists, starred notes, external keyboard support, and more, Femto will be ready to take in whatever you throw at it.</h1>
+				</div>
+			</div>
+		</div>
+		<div class="container" id="c3">
+			<div class="left containerContent">
+				<img src="images/sc3.png">
+			</div>
+			<div class="right containerContent">
+				<div class="descriptionText">
+					<h1 class="title">Made by Justin Hamilton</h1>
+					<p class="subtitle supportContent"><a href="https://apps.apple.com/us/app/femto-editor/id1482210825">Download</a> on the App Store</h1>
+					<p class="subtitle supportContent"><a href="https://apps.apple.com/us/app/femto-editor/id1482210825">Say hi</a> on Twitter</h1>
+					<p class="subtitle supportContent"><a href="privacypolicy.html">Read</a> the privacy policy</h1>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
