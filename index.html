@@ -85,44 +85,121 @@
 				max-width:175px;
 			}
 		</style>
+		<style>
+			#mobileHTML {
+				display:none;
+				text-align:center;
+			}
+			
+			.mobileContainer {
+				width:100%;
+			}
+			
+			.mobileScreenshot {
+				width:100%;
+			}
+			
+			.mobileTitle {
+				font-size:45px;
+			}
+			
+			.mobileSubtitle {
+				font-size:20px;
+				margin-top:-25px;
+				width:90%;
+				margin-left:5%;
+			}
+			
+			.mobileSupportContent {
+				margin-top:-10px;
+			}
+			
+			#mobileAppStoreBadge {
+				width:35%;
+				margin-bottom:10px;
+			}
+		</style>
 	</head>
 	<body>
-		<div class="container" id="c1">
-			<div class="left containerContent">
-				<img class="screenshot" src="images/sc1.png">
+		<div id="mobileHTML">
+			<div class="mobileContainer">
+				<h1 class="mobileTitle">Femto</h1>
+				<p class="mobileSubtitle">A simple, lightweight text editor.</p>
+				<p class="mobileSubtitle mobileSupportContent">Until January 24th, 80% of all proceeds will be donated to the Australian Red Cross.</p>
+				<img id="mobileAppStoreBadge" src="images/appstore.png">
+				<img class="mobileScreenshot" src="images/sc1.png">
 			</div>
-			<div class="right containerContent">
-				<div class="descriptionText">
-					<h1 class="title">Femto</h1>
-					<p class="subtitle">A simple, lightweight text editor.</h1>
-					<p class="subtitle supportContent">Until January 24th, 80% of all proceeds will be donated to the Australian Red Cross.</p>
-					<a href="https://apps.apple.com/us/app/femto-editor/id1482210825"><img src="images/appstore.png" id="appStoreBadge"></a>
+			<div class="mobileContainer">
+				<h1 class="mobileTitle">Simple, Yet Powerful</h1>
+				<p class="mobileSubtitle">With features like Markdown formatting, lists, starred notes, external keyboard support, and more, Femto will be ready to take in whatever you throw at it.</p>
+				<img class="mobileScreenshot" src="images/sc3.png">
+			</div>
+			<div class="mobileContainer">
+				<h1 class="mobileTitle">Made by <a href="https://www.jwhamilton.co">Justin Hamilton</a></h1>
+					<p class="mobileSubtitle mobileSupportContent"><a href="https://apps.apple.com/us/app/femto-editor/id1482210825">Download</a> on the App Store</h1>
+					<p class="mobileSubtitle mobileSupportContent"><a href="https://www.twitter.com/jwhamilton_">Say hi</a> on Twitter</h1>
+					<p class="mobileSubtitle mobileSupportContent"><a href="privacypolicy.html">Read</a> the privacy policy</p>
+				<img class="mobileScreenshot" src="images/sc2.png">
+			</div>
+		</div>
+		<div id="desktopHTML">
+			<div class="container" id="c1">
+				<div class="left containerContent">
+					<img class="screenshot" src="images/sc1.png">
+				</div>
+				<div class="right containerContent">
+					<div class="descriptionText">
+						<h1 class="title">Femto</h1>
+						<p class="subtitle">A simple, lightweight text editor.</h1>
+						<p class="subtitle supportContent">Until January 24th, 80% of all proceeds will be donated to the Australian Red Cross.</p>
+						<a href="https://apps.apple.com/us/app/femto-editor/id1482210825"><img src="images/appstore.png" id="appStoreBadge"></a>
+					</div>
+				</div>
+			</div>
+			<div class="container" id="c2">
+				<div class="left containerContent">
+					<img class="screenshot" src="images/sc2.png">
+				</div>
+				<div class="right containerContent">
+					<div class="descriptionText">
+						<h1 class="title">Simple, Yet Powerful</h1>
+						<p class="subtitle">With features like Markdown formatting, lists, starred notes, external keyboard support, and more, Femto will be ready to take in whatever you throw at it.</h1>
+					</div>
+				</div>
+			</div>
+			<div class="container" id="c3">
+				<div class="left containerContent">
+					<img class="screenshot" src="images/sc3.png">
+				</div>
+				<div class="right containerContent">
+					<div class="descriptionText">
+						<h1 class="title">Made by <a href="https://www.jwhamilton.co">Justin Hamilton</a></h1>
+						<p class="subtitle supportContent"><a href="https://apps.apple.com/us/app/femto-editor/id1482210825">Download</a> on the App Store</h1>
+						<p class="subtitle supportContent"><a href="https://www.twitter.com/jwhamilton_">Say hi</a> on Twitter</h1>
+						<p class="subtitle supportContent"><a href="privacypolicy.html">Read</a> the privacy policy</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container" id="c2">
-			<div class="left containerContent">
-				<img class="screenshot" src="images/sc2.png">
-			</div>
-			<div class="right containerContent">
-				<div class="descriptionText">
-					<h1 class="title">Simple, Yet Powerful</h1>
-					<p class="subtitle">With features like Markdown formatting, lists, starred notes, external keyboard support, and more, Femto will be ready to take in whatever you throw at it.</h1>
-				</div>
-			</div>
-		</div>
-		<div class="container" id="c3">
-			<div class="left containerContent">
-				<img class="screenshot" src="images/sc3.png">
-			</div>
-			<div class="right containerContent">
-				<div class="descriptionText">
-					<h1 class="title">Made by <a href="https://www.jwhamilton.co">Justin Hamilton</a></h1>
-					<p class="subtitle supportContent"><a href="https://apps.apple.com/us/app/femto-editor/id1482210825">Download</a> on the App Store</h1>
-					<p class="subtitle supportContent"><a href="https://www.twitter.com/jwhamilton_">Say hi</a> on Twitter</h1>
-					<p class="subtitle supportContent"><a href="privacypolicy.html">Read</a> the privacy policy</h1>
-				</div>
-			</div>
-		</div>
+		
+		<script>
+			//check if the device is mobile and switch to the mobile layout if it is
+			var a;
+			if (navigator.userAgent.match(/Android/i) 
+                || navigator.userAgent.match(/webOS/i) 
+                || navigator.userAgent.match(/iPhone/i)  
+                || navigator.userAgent.match(/iPad/i)  
+                || navigator.userAgent.match(/iPod/i) 
+                || navigator.userAgent.match(/BlackBerry/i) 
+                || navigator.userAgent.match(/Windows Phone/i)) { 
+                a = true; 
+            } else { 
+                a = false; 
+            } 
+            if(a) {
+            	document.getElementById("mobileHTML").style.display = "block";
+            	document.getElementById("desktopHTML").style.display = "none";
+            }
+		</script>
 	</body>
 </html>
