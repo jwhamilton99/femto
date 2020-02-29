@@ -85,6 +85,25 @@
 				width:100%;
 				max-width:175px;
 			}
+			
+			#marqueeTitle, #marqueeSubtitle, #marqueeImage, button {
+				transition: opacity .3s ease-in-out;
+			}
+			
+			button {
+				width:125px;
+				height:50px;
+				background-color:white;
+				border: 3px solid black;
+				border-radius:10px;
+				font-size:17px;
+				cursor:pointer;
+			}
+			
+			button:hover {
+				background-color:black;
+				color:white;
+			}
 		</style>
 		<style>
 			#mobileHTML {
@@ -120,6 +139,17 @@
 				width:35%;
 				margin-bottom:10px;
 			}
+			
+			#marqueeTitleMobile, #marqueeSubtitleMobile, #marqueeImageMobile, #nextButtonMobile {
+				transition: opacity .3s ease-in-out;
+			}
+			
+			#nextButtonMobile {
+				width:30%;
+				height:5%;
+				font-size:200%;
+				border-radius:20px;
+			}
 		</style>
 	</head>
 	<body>
@@ -132,9 +162,10 @@
 				<img class="mobileScreenshot" src="images/sc1.png">
 			</div>
 			<div class="mobileContainer">
-				<h1 class="mobileTitle">Simple, Yet Powerful</h1>
-				<p class="mobileSubtitle">With features like Markdown formatting, lists, starred notes, external keyboard support, and more, Femto will be ready to take in whatever you throw at it.</p>
-				<img class="mobileScreenshot" src="images/sc3.png">
+				<h1 class="mobileTitle" id="marqueeTitleMobile">Simple, Yet Powerful</h1>
+				<p class="mobileSubtitle" id="marqueeSubtitleMobile">With features like Markdown formatting, lists, starred notes, external keyboard support, and more, Femto will be ready to take in whatever you throw at it.</p>
+				<button onclick="switchMarquee()" id="nextButtonMobile">Next</button>
+				<img class="mobileScreenshot" id="marqueeImageMobile" src="images/sc3.png">
 			</div>
 			<div class="mobileContainer">
 				<h1 class="mobileTitle">Made by <a href="https://www.jwhamilton.co">Justin Hamilton</a></h1>
@@ -152,20 +183,21 @@
 				<div class="right containerContent">
 					<div class="descriptionText">
 						<h1 class="title">Femto</h1>
-						<p class="subtitle">A simple, lightweight plaintext editor.</h1>
-						<br><br>
+						<p class="subtitle">A simple, lightweight plaintext editor.</p>
+						
 						<a href="https://apps.apple.com/us/app/femto-editor/id1482210825"><img src="images/appstore.png" id="appStoreBadge"></a>
 					</div>
 				</div>
 			</div>
 			<div class="container" id="c2">
 				<div class="left containerContent">
-					<img class="screenshot" src="images/sc3.png">
+					<img class="screenshot" id="marqueeImage" src="images/sc3.png">
 				</div>
 				<div class="right containerContent">
 					<div class="descriptionText">
-						<h1 class="title">Simple, Yet Powerful</h1>
-						<p class="subtitle">With features like Markdown formatting, lists, starred notes, external keyboard support, and more, Femto will be ready to take in whatever you throw at it.</h1>
+						<h1 class="title" id="marqueeTitle">Simple, Yet Powerful</h1>
+						<p class="subtitle" id="marqueeSubtitle">With features like Markdown formatting, lists, starred notes, external keyboard support, and more, Femto will be ready to take in whatever you throw at it.</p>
+						<button onclick="switchMarquee()" id="nextButton">Next</button>
 					</div>
 				</div>
 			</div>
@@ -176,14 +208,13 @@
 				<div class="right containerContent">
 					<div class="descriptionText">
 						<h1 class="title">Made by <a href="https://www.jwhamilton.co">Justin Hamilton</a></h1>
-						<p class="subtitle supportContent"><a href="https://apps.apple.com/us/app/femto-editor/id1482210825">Download</a> on the App Store</h1>
-						<p class="subtitle supportContent"><a href="https://www.twitter.com/femtoeditor">Say hi</a> on Twitter</h1>
+						<p class="subtitle supportContent"><a href="https://apps.apple.com/us/app/femto-editor/id1482210825">Download</a> on the App Store</p>
+						<p class="subtitle supportContent"><a href="https://www.twitter.com/femtoeditor">Say hi</a> on Twitter</p>
 						<p class="subtitle supportContent"><a href="privacypolicy.html">Read</a> the privacy policy</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		
 		<script>
 			//check if the device is mobile and switch to the mobile layout if it is
 			var a;
@@ -202,6 +233,68 @@
             	document.getElementById("mobileHTML").style.display = "block";
             	document.getElementById("desktopHTML").style.display = "none";
             }
+		
+			var marqueeIndex = 0;
+			
+			class marqueeItem {
+				constructor(t, s, i) {
+					this.title = t;
+					this.subtitle = s;
+					this.imageName = i;
+				}
+			}
+			
+			var title = document.getElementById("marqueeTitle");
+			var subtitle = document.getElementById("marqueeSubtitle");
+			var image = document.getElementById("marqueeImage");
+			var button = document.getElementById("nextButton");
+			
+			var marqueeItems = [new marqueeItem(
+				"Simple, Yet Powerful",
+				"With features like Markdown formatting, lists, starred notes, external keyboard support, and more, Femto will be ready to take in whatever you throw at it.",
+				"sc3"),
+			new marqueeItem(
+				"Open Any Text File",
+				"Femto lets you save files using iCloud or Dropbox and can open .txt files from any document provider.",
+				"sc5"),
+			new marqueeItem(
+				"iPadOS Ready",
+				"Femto has support for external keyboards, keyboard shortcuts, Split View and Slide Over, and Multiwindow (coming soon), so you can use it any way you want on iPad.", 
+				"sc4")];
+			
+			if(a) {
+				var title = document.getElementById("marqueeTitleMobile");
+				var subtitle = document.getElementById("marqueeSubtitleMobile");
+				var image = document.getElementById("marqueeImageMobile");
+				var button = document.getElementById("nextButtonMobile");
+			}
+			
+			title.innerHTML = marqueeItems[0].title;
+			subtitle.innerHTML = marqueeItems[0].subtitle;
+			image.src = ("images/"+marqueeItems[0].imageName+".png");
+			
+			function switchMarquee(direction) {
+				marqueeIndex++;
+				if(marqueeIndex >= marqueeItems.length) {
+					marqueeIndex = 0;
+				}
+				
+				title.style.opacity = 0;
+				subtitle.style.opacity = 0;
+				image.style.opacity = 0;
+				button.style.opacity = 0;
+				setTimeout(function() {
+					title.innerHTML = marqueeItems[marqueeIndex].title;
+					subtitle.innerHTML = marqueeItems[marqueeIndex].subtitle;
+					image.src = ("images/"+marqueeItems[marqueeIndex].imageName+".png");
+				},300);
+				setTimeout(function(){
+					title.style.opacity = 1;
+					subtitle.style.opacity = 1;
+					image.style.opacity = 1;
+					button.style.opacity = 1;
+				},350);
+			}
 		</script>
 	</body>
 </html>
